@@ -44,7 +44,7 @@ read -p "Nhập quốc gia cho vps: " region
 clear
 sudo apt update
 sudo apt install qemu-kvm -y
-read -p "Nhập dung lượng cho ổ cd-rom" cd_rom
+read -p "Nhập dung lượng cho ổ cd-rom: " cd_rom
 qemu-img create -f raw windows.img $cd_rom
 sleep 1 &>/dev/null &
 clear
