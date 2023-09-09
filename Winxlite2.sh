@@ -1,7 +1,7 @@
 echo "Bản quyền bởi @chamhoi72"
 sleep 1
 sudo apt update
-sudo apt install qemu-kvm
+sudo apt install qemu-kvm -y
 echo "Nên nhập 128G trở xuống(nhưng có thể tự chọn như 100000G"
 read -p "Nhập dung lượng để xài,VD:128G(nhập xong vô nhanh): " CRP
 qemu-img create -f raw windows.img $CRP
