@@ -2,6 +2,8 @@ echo "Tải bios"
 wget -O bios64.bin https://github.com/BlankOn/ovmf-blobs/raw/master/bios64.bin
 read -p "Nhập liên kết iso để sử dụng: " iso
 wget -O windows.iso $iso
+echo "Iso đã tải xong"
+echo "Đang lấy link tải ngrok"
 echo "Tải ngrok"
 wget -O ngrok.tgz https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
 echo "..."
