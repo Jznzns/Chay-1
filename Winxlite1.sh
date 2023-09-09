@@ -3,8 +3,9 @@ wget -O bios64.bin https://github.com/BlankOn/ovmf-blobs/raw/master/bios64.bin
 read -p "Nhập liên kết iso để sử dụng: " iso
 wget -O windows.iso $iso
 echo "Iso đã tải xong"
-echo "Đang lấy link tải ngrok"
+sleep 3
 echo "Tải ngrok"
+sleep 1
 wget -O ngrok.tgz https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
 echo "..."
 tar -xf ngrok.tgz
@@ -14,7 +15,9 @@ echo "Hãy lấy đi lấy token"
 read -p "Nhập token đi kid: " token
 ./ngrok config add-authtoken $token
 echo "Khi nhập xong lệnh thì tạo bash mới)"
+sleep 1
 echo "..."
+sleep 1
 echo "Nhập vùng muốn chọn (VN chưa hỗ trợ)"
 echo "danh sách mã vùng nên xài"
 echo "- us: Hoa Kỳ (United States)
