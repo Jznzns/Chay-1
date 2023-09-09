@@ -1,14 +1,8 @@
-echo "Dang chay"
-echo "Ban quyen boi hoang vps link telegram"
-echo "https://t.me/chamhoi72"
-echo "Bat dau"
-echo "3"
-echo "2"
-echo "1"
-echo "let go"
-sudo su
+echo "Dang update"
 sudo apt update
+echo "Dang update"
 sudo apt install qemu-kvm
+echo "chọn dung luong"
 read -p "Nhap dung luong,VD:128G" CRP
 qemu-img create -f raw win.img $CRP
 echo "hay vo nhanh vnc nhanh va an nut bat ky de boot"
