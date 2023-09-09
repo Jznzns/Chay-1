@@ -22,5 +22,5 @@ curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*publ
 echo "Ctrl+C De Sao Chep"
 echo "Doi 1-2p De Cho Chay Xong Bot"
 echo "Dung Dong Tab Hay Tat"
-qemu-system-x86_64 -hda win.img -m 8G -smp cores=4 -net user,hostfwd=tcp::5900-:5900 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic
+sudo qemu-system-x86_64 -m 8G -cpu host -boot order=c -drive file=win.iso,media=cdrom -drive file=win.img,format=raw -device usb-ehci,id=usb,bus=pci.0,addr=0x4 -device usb-tablet -vnc :0 -smp cores=4 -device rtl8139,netdev=n0 -netdev user,id=n0 -vga qxl -accel kvm -bios bios64.bin
 sleep 43200
