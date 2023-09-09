@@ -1,11 +1,7 @@
-L1: wget -O bios64.bin "https://github.com/BlankOn/ovmf-blobs/raw/master/bios64.bin"
-L2 : wget -O win.iso "https://download936.mediafire.com/wgycnu4iksjgRJWpo2m2MxFJ2SZRWrVCNuTPLGJItqr0eRfT8GVd-nd8UkkbFFC7aPdJ-FvEXX8d20o5QOMTgDUliNxEWW6OFNDp0zB1s9twoI2F_84Pd2ukmuoBR75u9INFG8W5s4OlAr_gDYCHUvzSCEoz_WJ5MpJNT60bdj8M/2zi9cy6ogvtvpkx/Windows+X-Lite+%2822621.1928%29+%5C%27Micro+11%5C%27+By+FBConan.iso"
-L3 : wget -O ngrok.tgz "https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz"
-L4 : tar -xf ngrok.tgz
-rm -rf ngrok.tgz
-L6 : ./ngrok tcp 5900
-L7 : sudo apt update
-L8 : sudo apt install qemu-kvm -y
-L9 : qemu-img create -f raw win.img 30G
-L10 : sudo qemu-system-x86_64 -m 8G -cpu host -boot order=c -drive file=win.iso,media=cdrom -drive file=win.img,format=raw -device usb-ehci,id=usb,bus=pci.0,addr=0x4 -device usb-tablet -vnc :0 -smp cores=4 -device rtl8139,netdev=n0 -netdev user,id=n0 -vga qxl -accel kvm -bios bios64.bin
-curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee/etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok
+sudo su
+sudo apt update
+sudo apt install qemu-kvm
+read -p "Nhap dung luong muon co nhu 128G: " CRP
+qemu-img create -f raw win.img $CRP
+echo "hay vo nhanh va an nut bat ky de boot"
+sudo qemu-system-x86_64 -m 8G -cpu host -boot order=c -drive file=win.iso,media=cdrom -drive file=win.img,format=raw -device usb-ehci,id=usb,bus=pci.0,addr=0x4 -device usb-tablet -vnc :0 -smp cores=4 -device rtl8139,netdev=n0 -netdev user,id=n0 -vga qxl -accel kvm -bios bios64.bin
