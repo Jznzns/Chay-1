@@ -1,23 +1,24 @@
 clear
 echo "Bởi @chamhoi72 ở telegram"
+sleep 2 &>/dev/null &
+clear
 apt-get update
-sleep 1 &>/dev/null &
+sleep 2 &>/dev/null &
 clear
 read -p "Nhập link gz để tải gz: " gz
 wget -O windows.img $gz
-sleep 1 &>/dev/null &
+sleep 2 &>/dev/null &
 clear
 echo "Tải ngrok"
-sleep 1 &>/dev/null &
+sleep 2 &>/dev/null &
 wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip > /dev/null 2>&1
 unzip ngrok-stable-linux-amd64.zip > /dev/null 2>&1
 read -p "Nhập token: " token
 ./ngrok authtoken $token
-sleep 1 &>/dev/null &
+sleep 2 &>/dev/null &
 clear
 echo "Chọn vùng cho vps"
 sleep 3 &>/dev/null &
-clear
 echo "- us: Hoa Kỳ (United States)
 - eu: Châu Âu (Europe)
 - ap: Châu Á - Thái Bình Dương (Asia/Pacific)
