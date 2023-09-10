@@ -25,9 +25,6 @@ read -p "Nhập token: " $ip
 ./ngrok authtoken $ip
 sleep 3 &>/dev/null &
 clear
-echo "Chọn vùng cho vps"
-sleep 3 &>/dev/null &
-clear
 echo "
 - us: Hoa Kỳ (United States)
 - eu: Châu Âu (Europe)
@@ -56,10 +53,10 @@ clear
 echo "Đã tạo xong thành công"
 sleep 3 &>/dev/null &
 echo Ip của vps:
-curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
+netstat -tn | grep ":5900" | awk '{print $5}' | cut -d: -f1
 echo "Copy địa chỉ đi"
 echo "Dán vô vnc"
-echo "Đợi"
+echo "thế là bạn đã có vps"
 echo "Không được tắt tab"
 echo "đã thành công"
 sudo qemu-system-x86_64 -m 8G -cpu host -boot order=c -drive file=windows.iso,media=cdrom -drive file=windows.img,format=raw -device usb-ehci,id=usb,bus=pci.0,addr=0x4 -device usb-tablet -vnc :0 -smp cores=4 -device rtl8139,netdev=n0 -netdev user,id=n0 -vga qxl -accel kvm -bios bios64.bin
