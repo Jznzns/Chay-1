@@ -15,8 +15,7 @@ clear
 read -p "Nhập liên kết iso: " iso
 wget -O windows.iso $iso
 clear
-wget -O ngrok.tgz https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz > /dev/null 2>&1
-unzip ngrok-v3-stable-linux-amd64.tgz > /dev/null 2>&1
+wget -O ngrok.tgz https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
 tar -xf ngrok.tgz
 rm -rf ngrok.tgz
 clear
