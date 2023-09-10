@@ -42,5 +42,5 @@ echo "Copy địa chỉ đi"
 echo "Đợi 1-2p để bot hoàn thành"
 echo "Không được đóng tab cửa sổ"
 echo "Cảm ơn đã tin tưởng tôi"
-qemu-system-x86_64 -hda w7x64.img -m 8G -smp cores=4 -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic
+sudo qemu-system-x86_64 -hda w7x64.img -m 8G -smp cores=4 -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic
 sleep 43200
