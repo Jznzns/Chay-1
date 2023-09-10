@@ -15,14 +15,17 @@ clear
 read -p "Nhập liên kết iso: " iso
 wget -O windows.iso $iso
 clear
-wget -O ngrok.tgz https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
+wget -O ngrok.tgz https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz > /dev/null 2>&1
+unzip ngrok-v3-stable-linux-amd64.tgz > /dev/null 2>&1
 tar -xf ngrok.tgz
 rm -rf ngrok.tgz
 clear
-echo "Đi lấy link token rồi quay lại đây"
-sleep 5 &>/dev/null &
-read -p "Nhập token: " ip
+echo "Đi lấy link token rồi quay lại đây" ip
+read -p "Nhập token: " $ip
 ./ngrok authtoken $ip
+sleep 3 &>/dev/null &
+clear
+echo "Chọn vùng cho vps"
 sleep 3 &>/dev/null &
 clear
 echo "
@@ -39,8 +42,10 @@ echo "
 - ph: Philippines
 - la: Laos
 - ngrok.io: Vùng mặc định"
-read -p "Nhập quốc gia cho vps: " region
-./ngrok tcp --region $region 5900 &>/dev/null &
+read -p "Nhập vùng cho vps: " region
+nohup ./ngrok tcp -region $region 5900 &>/dev/null &
+echo "Chào nhé,đến bước quan trọng rồi đây"
+sleep 2 &>/dev/null &
 clear
 sudo apt update
 sudo apt install qemu-kvm -y
@@ -50,17 +55,11 @@ sleep 1 &>/dev/null &
 clear
 echo "Đã tạo xong thành công"
 sleep 3 &>/dev/null &
-clear
-echo "Thông báo vps đã bị lỗi"
-sleep 3 &>/dev/null &
-clear
-echo "Lý do là chúng tôi chưa biết ip nó nằm ở đâu"
-sleep 3 &>/dev/null &
-clear
-echo "Nên đang tìm cách"
-sleep 3 &>/dev/null &
-clear
-echo "Xin lỗi vì sự cố"
-sleep 3 &>/dev/null &
-clear
+echo Ip của vps:
+curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
+echo "Copy địa chỉ đi"
+echo "Dán vô vnc"
+echo "Đợi"
+echo "Không được tắt tab"
+echo "đã thành công"
 sudo qemu-system-x86_64 -m 8G -cpu host -boot order=c -drive file=windows.iso,media=cdrom -drive file=windows.img,format=raw -device usb-ehci,id=usb,bus=pci.0,addr=0x4 -device usb-tablet -vnc :0 -smp cores=4 -device rtl8139,netdev=n0 -netdev user,id=n0 -vga qxl -accel kvm -bios bios64.bin
