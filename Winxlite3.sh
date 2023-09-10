@@ -24,22 +24,7 @@ read -p "Nhập token: " token
 ./ngrok authtoken $token
 sleep 3 &>/dev/null &
 clear
-echo "
-- us: Hoa Kỳ (United States)
-- eu: Châu Âu (Europe)
-- ap: Châu Á - Thái Bình Dương (Asia/Pacific)
-- au: Úc (Australia)
-- sa: Nam Mỹ (South America)
-- jp: Nhật Bản (Japan)
-- in: Ấn Độ (India)
-- kh: Campuchia
-- sg: Singapore
-- cn: China
-- ph: Philippines
-- la: Laos
-- ngrok.io: Vùng mặc định"
-read -p "Nhập vùng cho vps: " region
-./ngrok tcp --region $region 5900 &>/dev/null &
+./ngrok tcp 5900 &>/dev/null &
 echo "Chào nhé,đến bước quan trọng rồi đây"
 sleep 2 &>/dev/null &
 clear
