@@ -38,7 +38,7 @@ echo "Windows đã săn sàng"
 sleep 1 &>/dev/null &
 echo Ip của vps:
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
-echo "Code địa chỉ đi"
+echo "Copy địa chỉ đi"
 echo "Đợi 1-2p để bot hoàn thành"
 echo "Không được đóng tab cửa sổ"
 echo "Cảm ơn đã tin tưởng tôi"
