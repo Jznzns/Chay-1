@@ -15,6 +15,8 @@ clear
 echo "Lựa chọn để cài vps:"
 echo "1. Xài iso"
 echo "2. Xài gz"
+read -p "Chọn lựa chọn: " CRP
+$CRP
 read choice
 if [ $choice -eq 1 ]
 then
