@@ -3,8 +3,8 @@ echo "Bởi @chamhoi72 ở telegram"
 apt-get update
 sleep 1 &>/dev/null &
 clear
-read -p "Nhập link để tải iso: " iso
-wget -O windows.img $iso
+read -p "Nhập link gz để tải gz: " gz
+wget -O windows.img $gz
 sleep 1 &>/dev/null &
 clear
 echo "Tải ngrok"
