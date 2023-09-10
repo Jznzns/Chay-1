@@ -1,26 +1,27 @@
-apt-get update
-echo "Tai xuong iso windows"
-wget -O win.iso https://archive.org/download/windows-x-lite-22621.1928-micro-11-by-fbconan/Windows%20X-Lite%20%2822621.1928%29%20%27Micro%2011%27%20By%20FBConan.iso
-echo "Tai xuong ngrok"
-wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip > /dev/null 2>&1
-unzip ngrok-stable-linux-amd64.zip > /dev/null 2>&1
-tar -xf ngrok.tgz
-rm -rf ngrok.tgz
-read -p "Nhap Authtoken: " CRP 
-./ngrok authtoken $CRP 
-nohup ./ngrok tcp 5900 &>/dev/null &
-echo Downloading File
-sudo su
-sudo apt update
-sudo apt install qemu-kvm -y
-qemu-img create -f raw win.img 200G
-apt-get install qemu
-echo "Doi"
-echo "Bat Dau Chay Windows"
-echo RDP Address:
-curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
-echo "Ctrl+C De Sao Chep"
-echo "Doi 1-2p De Cho Chay Xong Bot"
-echo "Dung Dong Tab Hay Tat"
-qemu-system-x86_64 -hda win.img -m 8G -smp cores=4 -net user,hostfwd=tcp::5900-:5900 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic
-sleep 43200
+clear
+echo "Chào nha"
+sleep 2 &>/dev/null
+clear
+echo "Đang tải tổng hợp"
+sleep 2 &>/dev/null &
+clear
+wget -O Winxlite3.sh https://raw.githubusercontent.com/Makabaa/Chay/main/Winxlite3.sh
+echo "Đang tải tổng hợp"
+sleep 2 &>/dev/null &
+clear
+wget -O Winlite1.sh https://raw.githubusercontent.com/Makabaa/Chay/main/Winlite1.sh
+sleep 2 &>/dev/null &
+clear
+echo "Lựa chọn để cài vps:"
+echo "1. Xài iso"
+echo "2. Xài gz"
+read choice
+if [ $choice -eq 1 ]
+then
+chmod +x Winxlite3.sh && ./Winxlite3.sh
+elif [ $choice -eq 2 ]
+then
+chmod +x Winlite1.sh && ./Winlite1.sh
+else
+  echo "Lựa chọn không hợp lệ"
+fi
