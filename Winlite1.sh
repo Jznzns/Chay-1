@@ -52,5 +52,13 @@ echo "Copy địa chỉ đi"
 echo "Đợi 1-2p để bot hoàn thành"
 echo "Không được đóng tab cửa sổ"
 echo "Cảm ơn đã tin tưởng tôi"
-sudo qemu-system-x86_64 -hda windows.img -m 8G -smp cores=4 -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic
-sleep 43200
+qemu-system-x86_64 \
+-net nic -net user,hostfwd=tcp::3389-:3389 \
+-m 12G -smp cores=4 \
+-cpu max \
+-enable-kvm \
+-boot order=d \
+-drive file=windows.img,format=raw,if=virtio \
+-device usb-ehci,id=usb,bus=pci.0,addr=0x4 \
+-device usb-tablet \
+-vnc :0 -vga virtio
