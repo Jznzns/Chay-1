@@ -20,7 +20,7 @@ tar -xf ngrok.tgz
 rm -rf ngrok.tgz
 clear
 echo "Đi lấy link token rồi quay lại đây"
-read -p "Nhập token: " token
+read -p "Nhập token ngrok: " token
 ./ngrok authtoken $token
 sleep 3 &>/dev/null &
 clear
