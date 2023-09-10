@@ -53,7 +53,8 @@ clear
 echo "Đã tạo xong thành công"
 sleep 3 &>/dev/null &
 echo Ip của vps:
-netstat -tn | grep ":5900" | awk '{print $5}' | cut -d: -f1
+netstat -tnlp | grep ngrok | grep ':5900' | awk '{print $4}' | awk -F: '{print $1}'
+
 echo "Copy địa chỉ đi"
 echo "Dán vô vnc"
 echo "thế là bạn đã có vps"
