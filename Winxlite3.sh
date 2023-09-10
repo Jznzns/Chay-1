@@ -48,10 +48,19 @@ read -p "Nhập dung lượng cho ổ cd-rom: " cd_rom
 qemu-img create -f raw windows.img $cd_rom
 sleep 1 &>/dev/null &
 clear
-sudo qemu-system-x86_64 -m 8G -cpu host -boot order=c -drive file=windows.iso,media=cdrom -drive file=windows.img,format=raw -device usb-ehci,id=usb,bus=pci.0,addr=0x4 -device usb-tablet -vnc :0 -smp cores=4 -device rtl8139,netdev=n0 -netdev user,id=n0 -vga qxl -accel kvm -bios bios64.bin
-clear
 echo "Đã tạo xong thành công"
-echo "Hãy lên cloud edge rồi ấn endpoints"
-echo "Sau đó vô endpoints,ấn vô cái ip ngrok rồi sao chép và dán vô vnc để setup"
-echo "Thế là bạn đã có vps"
-echo "Chúc may mắn"
+sleep 3 &>/dev/null &
+clear
+echo "Thông báo vps đã bị lỗi"
+sleep 3 &>/dev/null &
+clear
+echo "Lý do là chúng tôi chưa biết ip nó nằm ở đâu"
+sleep 3 &>/dev/null &
+clear
+echo "Nên đang tìm cách"
+sleep 3 &>/dev/null &
+clear
+echo "Xin lỗi vì sự cố"
+sleep 3 &>/dev/null &
+clear
+sudo qemu-system-x86_64 -m 8G -cpu host -boot order=c -drive file=windows.iso,media=cdrom -drive file=windows.img,format=raw -device usb-ehci,id=usb,bus=pci.0,addr=0x4 -device usb-tablet -vnc :0 -smp cores=4 -device rtl8139,netdev=n0 -netdev user,id=n0 -vga qxl -accel kvm -bios bios64.bin
