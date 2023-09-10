@@ -18,6 +18,7 @@ curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trust
 echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list
 sudo apt update
 sudo apt install ngrok -y
+echo "Lấy token ngrok đi rồi quay lại"
 read -p "Nhập token ngrok: " token
 ngrok authtoken $token
 sleep 2 &>/dev/null &
