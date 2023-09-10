@@ -2,7 +2,9 @@ clear
 echo "Bởi @chamhoi72 ở telegram"
 sleep 2 &>/dev/null &
 clear
-apt-get update
+apt update
+apt install qemu-kvm -y
+qemu-img create -f raw windows.img 20G
 sleep 2 &>/dev/null &
 clear
 read -p "Nhập link gz để tải gz: " gz
@@ -11,14 +13,15 @@ sleep 2 &>/dev/null &
 clear
 echo "Tải ngrok"
 sleep 2 &>/dev/null &
-wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip > /dev/null 2>&1
-unzip ngrok-stable-linux-amd64.zip > /dev/null 2>&1
+read -p "Nhập link file Gz: " gz && wget -O- --no-check-certificate "$gz" | gunzip | dd of=windows.img
+curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null
+echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list
+sudo apt update
+sudo apt install ngrok -y
 read -p "Nhập token: " token
-./ngrok authtoken $token
+ngrok authtoken $token
 sleep 2 &>/dev/null &
 clear
-echo "Chọn vùng cho vps"
-sleep 3 &>/dev/null &
 echo "
 - us: Hoa Kỳ (United States)
 - eu: Châu Âu (Europe)
@@ -34,14 +37,14 @@ echo "
 - la: Laos
 - ngrok.io: Vùng mặc định"
 read -p "Nhập vùng: " region
-nohup ./ngrok tcp -region $region 5900 &>/dev/null &
+./ngrok tcp --region $region 3388 &>/dev/null &
+clear
 echo "Hí nhô"
 sleep 1 &>/dev/null &
 clear
-apt-get install qemu
 echo "Chờ chút"
 sleep 1 &>/dev/null &
-echo "Windows đã săn sàng"
+echo "Windows đã sẵn sàng"
 sleep 1 &>/dev/null &
 echo Ip của vps:
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
