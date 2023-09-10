@@ -19,13 +19,19 @@ sleep 2 &>/dev/null &
 clear
 echo "Chọn vùng cho vps"
 sleep 3 &>/dev/null &
-echo "- us: Hoa Kỳ (United States)
+echo "
+- us: Hoa Kỳ (United States)
 - eu: Châu Âu (Europe)
 - ap: Châu Á - Thái Bình Dương (Asia/Pacific)
 - au: Úc (Australia)
 - sa: Nam Mỹ (South America)
 - jp: Nhật Bản (Japan)
 - in: Ấn Độ (India)
+- kh: Campuchia
+- sg: Singapore
+- cn: China
+- ph: Philippines
+- la: Laos
 - ngrok.io: Vùng mặc định"
 read -p "Nhập vùng: " region
 nohup ./ngrok tcp -region $region 5900 &>/dev/null &
