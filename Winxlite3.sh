@@ -1,15 +1,15 @@
 clear
 echo "Bản v1.3 đã thêm Winxlite3.sh"
-sleep 2
+sleep 2 &>/dev/null &
 clear
 echo "Đây là bản rút gọn"
-sleep 2
+sleep 2 &>/dev/null &
 clear
 echo "Được làm bởi @chamhoi72"
-sleep 2
+sleep 2 &>/dev/null &
 clear
 echo "Tải bios"
-sleep 1
+sleep 2 &>/dev/null &
 wget -O bios64.bin https://github.com/BlankOn/ovmf-blobs/raw/master/bios64.bin
 clear
 read -p "Nhập liên kết iso: " iso
@@ -19,9 +19,9 @@ wget -O ngrok.tgz https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd
 tar -xf ngrok.tgz
 rm -rf ngrok.tgz
 clear
-echo "Đi lấy link token rồi quay lại đây" ip
-read -p "Nhập token: " $ip
-./ngrok authtoken $ip
+echo "Đi lấy link token rồi quay lại đây"
+read -p "Nhập token: " token
+./ngrok authtoken $token
 sleep 3 &>/dev/null &
 clear
 echo "
@@ -39,21 +39,22 @@ echo "
 - la: Laos
 - ngrok.io: Vùng mặc định"
 read -p "Nhập vùng cho vps: " region
-nohup ./ngrok tcp -region $region 5900 &>/dev/null &
+./ngrok tcp --region $region 5900 &>/dev/null &
 echo "Chào nhé,đến bước quan trọng rồi đây"
 sleep 2 &>/dev/null &
 clear
 sudo apt update
 sudo apt install qemu-kvm -y
+sleep 2 &>/dev/null &
+clear
 read -p "Nhập dung lượng cho ổ cd-rom: " cd_rom
 qemu-img create -f raw windows.img $cd_rom
-sleep 1 &>/dev/null &
+sleep 2 &>/dev/null &
 clear
 echo "Đã tạo xong thành công"
 sleep 3 &>/dev/null &
-echo Ip của vps:
-netstat -tnlp | grep ngrok | grep ':5900' | awk '{print $4}' | awk -F: '{print $1}'
-
+echo Ip ngrok:
+curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
 echo "Copy địa chỉ đi"
 echo "Dán vô vnc"
 echo "thế là bạn đã có vps"
