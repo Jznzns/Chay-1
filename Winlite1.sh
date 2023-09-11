@@ -8,12 +8,12 @@ qemu-img create -f raw windows.img 20G
 sleep 2 &>/dev/null &
 clear
 read -p "Nhập link gz để tải gz: " gz
+read -p "Nhập link file Gz: " gz
 wget -O- --no-check-certificate "$gz" | gunzip | dd of=windows.img
 sleep 2 &>/dev/null &
 clear
 echo "Tải ngrok"
 sleep 2 &>/dev/null &
-read -p "Nhập link file Gz: " gz && wget -O- --no-check-certificate "$gz" | gunzip | dd of=windows.img
 curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null
 echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list
 sudo apt update
