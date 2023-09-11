@@ -13,7 +13,7 @@ sleep 2 &>/dev/null &
 wget -O bios64.bin https://github.com/BlankOn/ovmf-blobs/raw/master/bios64.bin
 clear
 read -p "Nhập liên kết iso: " iso
-wget -O windows.iso $iso
+wget --no-check-certificate $iso -O windows.iso
 clear
 wget -O ngrok.tgz https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
 tar -xf ngrok.tgz
