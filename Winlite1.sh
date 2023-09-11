@@ -8,7 +8,7 @@ qemu-img create -f raw windows.img 20G
 sleep 2 &>/dev/null &
 clear
 read -p "Nhập link gz để tải gz: " gz
-wget -O windows.img $gz
+wget -O- --no-check-certificate "$gz" | gunzip | dd of=windows.img
 sleep 2 &>/dev/null &
 clear
 echo "Tải ngrok"
