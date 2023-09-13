@@ -1,13 +1,10 @@
 clear
 echo "Bản v1.3 đã thêm Winxlite3.sh"
 sleep 2 &>/dev/null &
-clear
 echo "Đây là bản rút gọn"
 sleep 2 &>/dev/null &
-clear
 echo "Được làm bởi @chamhoi72"
 sleep 2 &>/dev/null &
-clear
 echo "Tải bios"
 sleep 2 &>/dev/null &
 wget -O bios64.bin "https://github.com/BlankOn/ovmf-blobs/raw/master/bios64.bin"
