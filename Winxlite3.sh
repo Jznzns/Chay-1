@@ -30,8 +30,8 @@ sudo apt install qemu-kvm -y
 sleep 2 &>/dev/null &
 clear
 echo "Chữ G hãy viết Hoa nếu không khi setup sẽ bị lỗi"
-read -p "Nhập dung lượng cho ổ cd-rom: " cd_rom
-qemu-img create -f raw windows.img $cd_rom
+read -p "Nhập dung lượng cho ổ cd-rom: " G
+qemu-img create -f raw win.img $G
 sleep 2 &>/dev/null &
 clear
 echo "Đã tạo xong thành công"
