@@ -4,8 +4,8 @@ sleep 3 &>/dev/null &
 clear
 sudo apt update
 sudo apt install qemu-kvm -y
-read -p "Nhập liên kết tải iso: " $link
-wget --no-check-certificate "$link" -O windows.iso
+read -p "Nhập liên kết tải iso: " $iso
+wget --no-check-certificate "$iso" -O windows.iso
 wget -O ngrok.tgz "https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz"
 tar -xf ngrok.tgz
 rm -rf ngrok.tgz
